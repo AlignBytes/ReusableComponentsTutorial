@@ -33,10 +33,14 @@ export const Tooltip = ({
   zIndex?: number;
   className?: string;
 }) => (
-  <div className="relative cursor-pointer group/wrapper">
+  <div
+    className="relative cursor-pointer group/wrapper focus:outline-none focus:ring focus:ring-gray-300"
+    tabIndex={0}
+    aria-description="Tooltip"
+  >
     {children}
     <div
-      className={`absolute transition-all duration-300 opacity-0 invisible group-hover/wrapper:visible group-hover/wrapper:opacity-100 delay-100 ${
+      className={`absolute transition-all duration-300 opacity-0 invisible group-hover/wrapper:visible group-hover/wrapper:opacity-100 group-focus/wrapper:visible group-focus/wrapper:opacity-100 delay-100 ${
         placement === "top" ? "left-1/2 -translate-x-1/2 bottom-full" : ""
       } ${placement === "topLeft" ? "right-full bottom-full" : ""} ${
         placement === "topRight" ? "left-full bottom-full" : ""
